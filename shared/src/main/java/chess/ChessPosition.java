@@ -1,4 +1,5 @@
 package chess;
+
 import java.util.Objects;
 
 /**
@@ -21,7 +22,7 @@ public class ChessPosition {
      * 1 codes for the bottom row
      */
     public int getRow() {
-        return row;
+       return row;
     }
 
     /**
@@ -29,22 +30,27 @@ public class ChessPosition {
      * 1 codes for the left row
      */
     public int getColumn() {
-        return column;
+      return column;
     }
-    @Override
-    public boolean equals (Object o){
-        if(this == o) return true;
-        if(!(o instanceof ChessPosition)) return false;
-        ChessPosition that = (ChessPosition) o;
-        return that.row == row && that.column == column;
-    }
-    @Override
-    public int hashCode(){
-        return Objects.hash(row, column);
 
-    }
     @Override
-    public String toString(){
-        return "ChessPosition{"+ "row="+ row +", column=" + column + '}';
+    public String toString() {
+        return "ChessPosition{" +
+                "row=" + row +
+                ", column=" + column +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ChessPosition that)) {
+            return false;
+        }
+        return row == that.row && column == that.column;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
     }
 }
